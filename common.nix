@@ -1,6 +1,19 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    <home-manager/nixos>
+  ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.prime = { ... }: {
+    home.stateVersion = "26.05";
+
+    xdg.configFile."sway/config".source = ./dotfiles/sway/config;
+    xdg.configFile."yambar/config.yml".source = ./dotfiles/yambar/config.yml;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
