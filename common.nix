@@ -10,6 +10,37 @@
   home-manager.users.prime = { ... }: {
     home.stateVersion = "26.05";
 
+    home.sessionVariables = {
+      GTK_THEME = "Adwaita:dark";
+      QT_STYLE_OVERRIDE = "kvantum";
+    };
+
+    qt = {
+        enable = true;
+        platformTheme.name = "qtct";
+        style.name = "kvantum";
+      };
+
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Adwaita";
+        package = pkgs.gnome-themes-extra;
+      };
+      gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+      gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
     programs.zsh = {
         enable = true;
         oh-my-zsh.enable = true;
@@ -30,6 +61,7 @@
 
     xdg.configFile."sway/config".source = ./dotfiles/sway/config;
     xdg.configFile."yambar/config.yml".source = ./dotfiles/yambar/config.yml;
+    xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
     xdg.configFile."nvim" = {
       source = ./dotfiles/nvim;
       recursive = true;
@@ -38,6 +70,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Needed for home-manager's dconf.settings (GTK4/libadwaita dark mode)
+  programs.dconf.enable = true;
+  services.gvfs.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -61,6 +97,26 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+  };
+
+  services.openssh = {
+      enable = true;
+      settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+      };
+  };
+
+  # Nerd Fonts: FantasqueSansM for kitty, JetBrainsMono for yambar icons
+  fonts.packages = with pkgs; [
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.jetbrains-mono
+  ];
+
+  # LocalSend discovery (UDP) + transfer (TCP)
+  networking.firewall = {
+    allowedTCPPorts = [ 53317 22];
+    allowedUDPPorts = [ 53317 ];
   };
 
   # Define a user account. Don't forget to set a password with 'passwd'.
@@ -95,7 +151,7 @@
   environment.systemPackages = with pkgs; [
     git
     kitty
-    qutebrowser
+    firefox
     fastfetch
     obsidian
     yambar
@@ -107,6 +163,16 @@
     gcc
     nodejs
     zsh-powerlevel10k
+    waypaper
+    awww
+    wireguard-tools
+    localsend
+    lxqt.pcmanfm-qt
+    gvfs
+    kdePackages.qt6ct
+    kdePackages.qtstyleplugin-kvantum
+    papirus-icon-theme
+    qutebrowser
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib

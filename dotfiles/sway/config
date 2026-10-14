@@ -39,11 +39,13 @@ set $menu wmenu-run
 
 #EXEC
 exec yambar
+exec awww-daemon
+exec waypaper --restore
+
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Wallpaper is handled by awww-daemon + waypaper (see #EXEC above), not sway's own `output bg`.
 #
 # Example configuration:
 #
@@ -96,7 +98,7 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
     bindsym $mod+d exec $menu
 
     # Open browser
-    bindsym $mod+b exec qutebrowser
+    bindsym $mod+b exec firefox
     bindsym $mod+shift+y exec "pkill yambar; yambar"
 
     ## windows

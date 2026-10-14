@@ -1,7 +1,7 @@
 bar:
   location: top
   height: 28
-  font: monospace:pixelsize=14
+  font: "JetBrainsMono Nerd Font Mono:pixelsize=14"
   background: 1e1e2eff
   foreground: cdd6f4ff
 
@@ -10,14 +10,189 @@ bar:
         content:
           "":
             map:
-              default:
-                string: {text: "{name}", margin: 8}
               conditions:
-                state == focused:
+                state == focused && empty:
                   string:
                     text: "{name}"
                     margin: 8
                     deco: {underline: {size: 3, color: 89b4faff}}
+                empty:
+                  string: {text: "{name}", margin: 8}
+                state == focused && application == "firefox":
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "firefox":
+                  string: {text: "", margin: 8}
+                state == focused && application == "kitty":
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "kitty":
+                  string: {text: "", margin: 8}
+                state == focused && application == "md.obsidian.Obsidian":
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "md.obsidian.Obsidian":
+                  string: {text: "", margin: 8}
+                state == focused && application == "bitwarden":
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "bitwarden":
+                  string: {text: "", margin: 8}
+                state == focused && application == "localsend_app":
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "localsend_app":
+                  string: {text: "", margin: 8}
+                state == focused && application == "waypaper":
+                  string:
+                    text: "󰸉"
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "waypaper":
+                  string: {text: "󰸉", margin: 8}
+                state == focused && application == "google-chrome":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "google-chrome":
+                  string: {text: "", margin: 8}
+                state == focused && application == "Code":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "Code":
+                  string: {text: "", margin: 8}
+                state == focused && application == "discord":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "discord":
+                  string: {text: "", margin: 8}
+                state == focused && application == "Spotify":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "Spotify":
+                  string: {text: "", margin: 8}
+                state == focused && application == "vlc":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: "󰕼"
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "vlc":
+                  string: {text: "󰕼", margin: 8}
+                state == focused && application == "Gimp-2.10":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "Gimp-2.10":
+                  string: {text: "", margin: 8}
+                state == focused && application == "Slack":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "Slack":
+                  string: {text: "", margin: 8}
+                state == focused && application == "org.telegram.desktop":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "org.telegram.desktop":
+                  string: {text: "", margin: 8}
+                state == focused && application == "thunderbird":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "thunderbird":
+                  string: {text: "", margin: 8}
+                state == focused && application == "blender":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "blender":
+                  string: {text: "", margin: 8}
+                state == focused && application == "Steam":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "Steam":
+                  string: {text: "", margin: 8}
+                state == focused && application == "libreoffice-writer":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "libreoffice-writer":
+                  string: {text: "", margin: 8}
+                state == focused && application == "libreoffice-calc":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "libreoffice-calc":
+                  string: {text: "", margin: 8}
+                state == focused && application == "libreoffice-impress":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "libreoffice-impress":
+                  string: {text: "", margin: 8}
+                state == focused && application == "mpv":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "mpv":
+                  string: {text: "", margin: 8}
+                state == focused && application == "org.gnome.Nautilus":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "org.gnome.Nautilus":
+                  string: {text: "", margin: 8}
+                state == focused && application == "org.pwmt.zathura":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "org.pwmt.zathura":
+                  string: {text: "", margin: 8}
+                state == focused && application == "org.gnome.eog":  # unverified app_id - check with swaymsg -t get_tree
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+                application == "org.gnome.eog":
+                  string: {text: "", margin: 8}
+                state == focused:
+                  string:
+                    text: ""
+                    margin: 8
+                    deco: {underline: {size: 3, color: 89b4faff}}
+              default:
+                string: {text: "", margin: 8}
 
   right:
     - battery:
