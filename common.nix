@@ -10,6 +10,26 @@
   home-manager.users.prime = { ... }: {
     home.stateVersion = "26.05";
 
+    home.pointerCursor = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
+    };
+
+    systemd.user.services.hyprpolkitagent = {
+      Unit = {
+        Description = "Hyprland Polkit Authentication Agent";
+        PartOf = [ "graphical-sesison.target"];
+        After = [ "graphical-session.target" ]; 
+        };
+        Service = {
+          ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+          Slice = "session.slice";
+          Restart = "on-failure";
+        };
+        Install.WantedBy = [ "graphical-sesison.target" ];
+      };
+
     home.sessionVariables = {
       GTK_THEME = "Adwaita:dark";
       QT_STYLE_OVERRIDE = "kvantum";
@@ -59,9 +79,13 @@
         ];
     };
 
-    xdg.configFile."sway/config".source = ./dotfiles/sway/config;
-    xdg.configFile."yambar/config.yml".source = ./dotfiles/yambar/config.yml;
+
+
     xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+    xdg.configFile."niri/config.kdl" = {
+      source =  ./dotfiles/niri/config.kdl;
+      force = true;
+    };  
     xdg.configFile."nvim" = {
       source = ./dotfiles/nvim;
       recursive = true;
@@ -74,6 +98,13 @@
   # Needed for home-manager's dconf.settings (GTK4/libadwaita dark mode)
   programs.dconf.enable = true;
   services.gvfs.enable = true;
+  services.upower.enable = true;
+  services.greetd = {
+      enable = true;
+      settings.default_session.command = "${pkgs.noctalia-greeter}/bin/noctalia-greeter-session";
+  };
+
+  systemd.tmpfiles.packages = [ pkgs.noctalia-greeter ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -134,11 +165,9 @@
   system.stateVersion = "26.05";
 
   # PACKAGES
-  programs.sway = {
-    enable = true;
-    package = pkgs.swayfx;
-    wrapperFeatures.gtk = true;
-  };
+  
+  programs.niri.enable = true;
+
 
   programs.neovim = {
     enable = true;
@@ -147,14 +176,14 @@
 
   programs.zsh.enable = true;
 
-  # ENVIRONMENT
+  # ENVIRONMENT / systempackages
   environment.systemPackages = with pkgs; [
     git
     kitty
     firefox
     fastfetch
     obsidian
-    yambar
+    noctalia
     yazi
     claude-code
     bitwarden-desktop
@@ -163,8 +192,6 @@
     gcc
     nodejs
     zsh-powerlevel10k
-    waypaper
-    awww
     wireguard-tools
     localsend
     lxqt.pcmanfm-qt
@@ -173,6 +200,11 @@
     kdePackages.qtstyleplugin-kvantum
     papirus-icon-theme
     qutebrowser
+    swaylock
+    xwayland-satellite
+    noctalia-greeter
+    hyprpolkitagent
+    wl-clipboard
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
