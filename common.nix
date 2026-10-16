@@ -200,7 +200,6 @@
     kdePackages.qtstyleplugin-kvantum
     papirus-icon-theme
     qutebrowser
-    swaylock
     xwayland-satellite
     noctalia-greeter
     hyprpolkitagent
