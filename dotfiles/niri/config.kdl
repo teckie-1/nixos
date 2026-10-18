@@ -388,7 +388,7 @@ binds {
     Mod+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }
     Mod+H hotkey-overlay-title="Open Home" { spawn "noctalia" "msg" "panel-toggle" "control-center" "home"; }
     Mod+B hotkey-overlay-title="Open a Browser: firefox" { spawn "firefox"; }
-    Mod+N hotkey-overlay-title="Open Notifications" { spawn "noctalia" "msg" "panel-toggle" "notifications"; }
+    Mod+N hotkey-overlay-title="Open Notifications" { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
