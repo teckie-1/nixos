@@ -11,4 +11,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "t480";
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 }

@@ -152,12 +152,12 @@ layout {
     // client-side decorations.
     //
     // Alternatively, you can override it with a window rule called
-    //`draw-border-with-background`.
+    // draw-border-with-background false
 
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        off
+        on
 
         // How many logical pixels the ring extends out from the windows.
         width 1
@@ -168,7 +168,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#ffffff"
 
         // Color of the ring on inactive monitors.
         //
@@ -331,6 +331,10 @@ window-rule {
 }
 
 window-rule {
+   draw-border-with-background false
+}
+
+window-rule {
   match app-id="kitty"
   opacity 1.0
 }
@@ -381,10 +385,10 @@ binds {
     // Binds for running programs:
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: noctalia" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-    Mod+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock";}
+    Mod+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }
     Mod+H hotkey-overlay-title="Open Home" { spawn "noctalia" "msg" "panel-toggle" "control-center" "home"; }
     Mod+B hotkey-overlay-title="Open a Browser: firefox" { spawn "firefox"; }
-    
+    Mod+N hotkey-overlay-title="Open Notifications" { spawn "noctalia" "msg" "panel-toggle" "notifications"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -562,8 +566,8 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    // Mod+BracketLeft  { consume-or-expel-window-left; }
+    // Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }

@@ -19,7 +19,7 @@
     systemd.user.services.hyprpolkitagent = {
       Unit = {
         Description = "Hyprland Polkit Authentication Agent";
-        PartOf = [ "graphical-sesison.target"];
+        PartOf = [ "graphical-session.target"];
         After = [ "graphical-session.target" ]; 
         };
         Service = {
@@ -27,7 +27,7 @@
           Slice = "session.slice";
           Restart = "on-failure";
         };
-        Install.WantedBy = [ "graphical-sesison.target" ];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
 
     home.sessionVariables = {
@@ -204,6 +204,7 @@
     noctalia-greeter
     hyprpolkitagent
     wl-clipboard
+    btop
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
