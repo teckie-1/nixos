@@ -50,6 +50,7 @@
       gtk3.extraConfig = {
         gtk-application-prefer-dark-theme = 1;
       };
+
       gtk4.extraConfig = {
         gtk-application-prefer-dark-theme = 1;
       };
@@ -97,7 +98,12 @@
 
   # Needed for home-manager's dconf.settings (GTK4/libadwaita dark mode)
   programs.dconf.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
   services.gvfs.enable = true;
+  services.pcscd.enable = true;
   services.upower.enable = true;
   services.greetd = {
       enable = true;
@@ -209,6 +215,8 @@
     thunderbird
     seafile-client
     rclone
+    pass
+    yubikey-manager
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
