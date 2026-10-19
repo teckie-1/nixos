@@ -205,6 +205,10 @@
     hyprpolkitagent
     wl-clipboard
     btop
+    onlyoffice-desktopeditors
+    thunderbird
+    seafile-client
+    rclone
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
