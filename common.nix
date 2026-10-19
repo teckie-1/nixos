@@ -67,6 +67,10 @@
         oh-my-zsh.enable = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
+        shellAliases = {
+          cat = "bat";
+          lsbc = "bat -l conf -p";
+        };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
             if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
@@ -98,6 +102,9 @@
 
   # Needed for home-manager's dconf.settings (GTK4/libadwaita dark mode)
   programs.dconf.enable = true;
+  environment.variables = {
+    MANPAGER = "sh -c 'bat -l man -p'";
+  };
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;
@@ -217,6 +224,7 @@
     rclone
     pass
     yubikey-manager
+    bat
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
