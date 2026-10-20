@@ -20,6 +20,9 @@
   # graphics explicitly to be sure OpenGL/Vulkan userspace is wired up.
   hardware.graphics.enable = true;
 
+  # Disable USB autosuspend
+  boot.kernalParams = [ "usbcore.autosuspend=-1" ];
+
   # Gaming-specific stuff (Steam, GameMode, Proton) belongs here too,
   # not in common.nix — add as needed.
 }
