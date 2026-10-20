@@ -119,6 +119,20 @@
 
   systemd.tmpfiles.packages = [ pkgs.noctalia-greeter ];
 
+  # Let gpu-screen-recorder's KMS capture helper run as root without a
+  # password prompt every time — it needs root to read the DRM framebuffer
+  # directly, matched by binary name (not the Nix store path) so it
+  # survives package updates.
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.policykit.pkexec.run-command" &&
+          action.lookup("program").match(/\/gsr-kms-server$/) &&
+          subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -225,6 +239,9 @@
     pass
     yubikey-manager
     bat
+    vesktop
+    gpu-screen-recorder-gtk
+
 
 
     # Rust toolchain so blink.cmp can build its own native fuzzy-matcher lib
