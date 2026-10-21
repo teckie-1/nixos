@@ -23,18 +23,7 @@
   # Disable USB autosuspend
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
-  # Screen off after 5 min idle — no suspend/hibernate, so SSH stays reachable.
-  environment.systemPackages = [ pkgs.swayidle pkgs.mangohud ];
-  systemd.user.services.swayidle = {
-    description = "Idle manager — screen off after 5 min, no suspend";
-    partOf = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.swayidle}/bin/swayidle -w timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors'";
-      Restart = "on-failure";
-    };
-    wantedBy = [ "graphical-session.target" ];
-  };
+  environment.systemPackages = [ pkgs.mangohud ];
 
   # Gaming-specific stuff (Steam, GameMode, Proton) belongs here too,
   # not in common.nix — add as needed.
