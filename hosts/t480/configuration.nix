@@ -16,5 +16,5 @@
   hardware.bluetooth.powerOnBoot = true;
 
   # Lock on lid close instead of suspending, so SSH/remote access stays up.
-  services.logind.lidSwitch = "lock";
+  services.logind.settings.Login.HandleLidSwitch = "lock";
 }
