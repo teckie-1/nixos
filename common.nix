@@ -226,7 +226,6 @@
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
     papirus-icon-theme
-    qutebrowser
     xwayland-satellite
     noctalia-greeter
     hyprpolkitagent
