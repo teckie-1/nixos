@@ -107,8 +107,11 @@
   };
   programs.gnupg.agent = {
     enable = true;
+    enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
+  services.gnome.gcr-ssh-agent.enable = false;
+
   services.gvfs.enable = true;
   services.pcscd.enable = true;
   services.upower.enable = true;
@@ -240,6 +243,7 @@
     bat
     vesktop
     gpu-screen-recorder-gtk
+    nmap
 
 
 
