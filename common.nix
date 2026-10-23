@@ -70,6 +70,7 @@
         shellAliases = {
           cat = "bat";
           lsbc = "bat -l conf -p";
+          img = "imv";
         };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
@@ -244,6 +245,9 @@
     vesktop
     gpu-screen-recorder-gtk
     nmap
+    imv
+    gimp
+    shotcut
 
 
 
