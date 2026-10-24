@@ -96,6 +96,43 @@
       source = ./dotfiles/nvim;
       recursive = true;
     };
+
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/png" = "imv.desktop";
+        "image/jpeg" = "imv.desktop";
+        "image/jpg" = "imv.desktop";
+        "image/gif" = "imv.desktop";
+        "image/bmp" = "imv.desktop";
+        "image/webp" = "imv.desktop";
+        "image/tiff" = "imv.desktop";
+        "image/avif" = "imv.desktop";
+        "image/jxl" = "imv.desktop";
+        "image/qoi" = "imv.desktop";
+        "image/svg+xml" = "imv.desktop";
+
+        "x-scheme-handler/bitwarden" = "bitwarden.desktop";
+        "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
+        "x-scheme-handler/discord" = "vesktop.desktop";
+        "x-scheme-handler/mailto" = "userapp-Thunderbird-G3BEX3.desktop";
+        "x-scheme-handler/mid" = "userapp-Thunderbird-G3BEX3.desktop";
+        "message/rfc822" = "userapp-Thunderbird-G3BEX3.desktop";
+        "x-scheme-handler/news" = "userapp-Thunderbird-AZOEX3.desktop";
+        "x-scheme-handler/snews" = "userapp-Thunderbird-AZOEX3.desktop";
+        "x-scheme-handler/nntp" = "userapp-Thunderbird-AZOEX3.desktop";
+        "x-scheme-handler/feed" = "userapp-Thunderbird-QQ0EX3.desktop";
+        "application/rss+xml" = "userapp-Thunderbird-QQ0EX3.desktop";
+        "application/x-extension-rss" = "userapp-Thunderbird-QQ0EX3.desktop";
+        "x-scheme-handler/webcal" = "userapp-Thunderbird-W3HFX3.desktop";
+        "x-scheme-handler/webcals" = "userapp-Thunderbird-W3HFX3.desktop";
+        "text/calendar" = "userapp-Thunderbird-W3HFX3.desktop";
+        "application/x-extension-ics" = "userapp-Thunderbird-W3HFX3.desktop";
+        "x-scheme-handler/net.thunderbird" = "userapp-Thunderbird-KRZFX3.desktop";
+      };
+    };
+
+    xdg.configFile."mimeapps.list".force = true;
   };
 
   # Enable networking
