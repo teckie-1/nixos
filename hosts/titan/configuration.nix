@@ -6,6 +6,7 @@
     ../../common.nix
   ];
 
+
   # UEFI assumed (modern desktop board) — confirm during install;
   # switch to boot.loader.grub if this board turns out to be BIOS-only.
   boot.loader.systemd-boot.enable = true;
@@ -23,7 +24,11 @@
   # Disable USB autosuspend
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
-  environment.systemPackages = [ pkgs.mangohud ];
+  environment.systemPackages = [ pkgs.mangohud pkgs.openrgb pkgs.hyperhdr ];
+  hardware.i2c.enable = true;
+  users.users.prime.extraGroups = [ "i2c" ];
+  services.udev.packages = [ pkgs.openrgb ];
+
 
   # Gaming-specific stuff (Steam, GameMode, Proton) belongs here too,
   # not in common.nix — add as needed.

@@ -232,6 +232,15 @@
 
   system.stateVersion = "26.05";
 
+  # EXPERIMENTAL FEATURES
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+    };
+
   # PACKAGES
   
   programs.niri.enable = true;
