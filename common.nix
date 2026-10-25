@@ -245,6 +245,15 @@
   
   programs.niri.enable = true;
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      command_timeout = 1300;
+    };
+  };
+
+
 
   programs.neovim = {
     enable = true;
