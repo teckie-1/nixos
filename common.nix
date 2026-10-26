@@ -1,5 +1,12 @@
 { config, pkgs, lib, ... }:
 
+let
+  hostName = config.networking.hostName;
+  kittyFontSize = {
+    titan = 12.0;
+    t480 = 10.0;
+    }.${hostName} or 12.0;
+  in
 {
   imports = [
     <home-manager/nixos>
@@ -88,6 +95,7 @@
 
 
     xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+    xdg.configFile."kitty/font-size.conf".text = "font_size ${toString kittyFontSize}";
     xdg.configFile."niri/config.kdl" = {
       source =  ./dotfiles/niri/config.kdl;
       force = true;
@@ -303,6 +311,7 @@
     imv
     gimp
     shotcut
+    tree
 
 
 
