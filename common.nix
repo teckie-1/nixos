@@ -312,6 +312,7 @@ let
     gimp
     shotcut
     tree
+    telegram-desktop
 
 
 
