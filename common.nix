@@ -313,6 +313,7 @@ let
     shotcut
     tree
     telegram-desktop
+    calibre
 
 
 

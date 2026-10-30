@@ -26,7 +26,7 @@
 
   environment.systemPackages = [ pkgs.mangohud pkgs.openrgb pkgs.hyperhdr ];
   hardware.i2c.enable = true;
-  users.users.prime.extraGroups = [ "i2c" ];
+  users.users.prime.extraGroups = [ "i2c" "wheel" "networkmanager" "dialout"];
   services.udev.packages = [ pkgs.openrgb ];
 
 
