@@ -314,6 +314,8 @@ let
     tree
     telegram-desktop
     calibre
+    yubioath-flutter
+    weechat
 
 
 
