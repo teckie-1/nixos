@@ -1,16 +1,29 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+  lanzabooteSrc = builtins.fetchTarball {
+    url = "https://github.com/nix-community/lanzaboote/archive/refs/tags/v0.4.3.tar.gz";
+    sha256 = "016pgbh27zjwbzq1li1d4r40b37vwmnz8khh04vspd5gw91szzi1";
+  };
+  lanzaboote = import lanzabooteSrc;
+in
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../common.nix
+    lanzaboote.nixosModules.lanzaboote
   ];
 
 
   # UEFI assumed (modern desktop board) — confirm during install;
   # switch to boot.loader.grub if this board turns out to be BIOS-only.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   networking.hostName = "titan";
 
@@ -24,7 +37,7 @@
   # Disable USB autosuspend
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
-  environment.systemPackages = [ pkgs.mangohud pkgs.openrgb pkgs.hyperhdr ];
+  environment.systemPackages = [ pkgs.mangohud pkgs.openrgb pkgs.hyperhdr pkgs.sbctl ];
   hardware.i2c.enable = true;
   users.users.prime.extraGroups = [ "i2c" "wheel" "networkmanager" "dialout"];
   services.udev.packages = [ pkgs.openrgb pkgs.libfido2 ];
