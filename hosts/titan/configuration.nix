@@ -37,7 +37,13 @@ in
   # Disable USB autosuspend
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
-  environment.systemPackages = [ pkgs.mangohud pkgs.openrgb pkgs.hyperhdr pkgs.sbctl ];
+  environment.systemPackages = [
+    pkgs.mangohud
+    pkgs.openrgb
+    pkgs.hyperhdr
+    pkgs.sbctl
+    (pkgs.wrapOBS { plugins = [ pkgs.obs-studio-plugins.obs-vaapi ]; })
+  ];
   hardware.i2c.enable = true;
   users.users.prime.extraGroups = [ "i2c" "wheel" "networkmanager" "dialout"];
   services.udev.packages = [ pkgs.openrgb pkgs.libfido2 ];

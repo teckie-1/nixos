@@ -306,7 +306,6 @@ let
     yubikey-manager
     bat
     vesktop
-    gpu-screen-recorder-gtk
     nmap
     imv
     gimp

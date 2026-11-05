@@ -17,4 +17,6 @@
 
   # Lock on lid close instead of suspending, so SSH/remote access stays up.
   services.logind.settings.Login.HandleLidSwitch = "lock";
+
+  environment.systemPackages = [ pkgs.obs-studio ];
 }
