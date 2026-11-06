@@ -8,9 +8,6 @@ let
     }.${hostName} or 12.0;
   in
 {
-  imports = [
-    <home-manager/nixos>
-  ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

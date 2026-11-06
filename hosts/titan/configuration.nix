@@ -12,6 +12,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ../../common.nix
+    <home-manager/nixos>
     lanzaboote.nixosModules.lanzaboote
   ];
 
