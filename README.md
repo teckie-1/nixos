@@ -5,3 +5,4 @@ Once I was done getting the t480 setup and learned my way around the system a li
 distro of choice. As I customize more, I'll keep you posted. Here it is.
 
 ![alt](img/nixos-desktop.png)
+![alt](img/nixos-t480.png)
