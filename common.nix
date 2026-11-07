@@ -275,6 +275,7 @@ let
     kitty
     firefox
     fastfetch
+    jq
     obsidian
     noctalia
     yazi
