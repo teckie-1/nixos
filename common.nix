@@ -75,6 +75,7 @@ let
           cat = "bat";
           lsbc = "bat -l conf -p";
           img = "imv";
+          fastfetch = "fastfetch -c ~/.config/fastfetch/config.jsonc:~/.config/fastfetch/themes/noctalia.jsonc";
         };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
@@ -96,7 +97,8 @@ let
     xdg.configFile."niri/config.kdl" = {
       source =  ./dotfiles/niri/config.kdl;
       force = true;
-    };  
+    };
+    xdg.configFile."fastfetch/config.jsonc".source = ./dotfiles/fastfetch/config.jsonc;
     xdg.configFile."nvim" = {
       source = ./dotfiles/nvim;
       recursive = true;
