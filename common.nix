@@ -274,6 +274,7 @@ let
     git
     kitty
     firefox
+    qutebrowser
     fastfetch
     jq
     obsidian
