@@ -75,7 +75,7 @@ let
           cat = "bat";
           lsbc = "bat -l conf -p";
           img = "imv";
-          fastfetch = "fastfetch -c ~/.config/fastfetch/config.jsonc:~/.config/fastfetch/themes/noctalia.jsonc";
+          fastfetch = "fastfetch -c $HOME/.config/fastfetch/config.jsonc:$HOME/.config/fastfetch/themes/noctalia.jsonc";
         };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
