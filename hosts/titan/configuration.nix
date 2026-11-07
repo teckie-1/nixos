@@ -1,19 +1,9 @@
 { config, pkgs, lib, ... }:
 
-let
-  lanzabooteSrc = builtins.fetchTarball {
-    url = "https://github.com/nix-community/lanzaboote/archive/refs/tags/v0.4.3.tar.gz";
-    sha256 = "016pgbh27zjwbzq1li1d4r40b37vwmnz8khh04vspd5gw91szzi1";
-  };
-  lanzaboote = import lanzabooteSrc;
-in
-
 {
   imports = [
     ./hardware-configuration.nix
     ../../common.nix
-    <home-manager/nixos>
-    lanzaboote.nixosModules.lanzaboote
   ];
 
 
