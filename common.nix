@@ -98,7 +98,10 @@ let
       source =  ./dotfiles/niri/config.kdl;
       force = true;
     };
-    xdg.configFile."fastfetch/config.jsonc".source = ./dotfiles/fastfetch/config.jsonc;
+    xdg.configFile."fastfetch/config.jsonc" = {
+      source = ./dotfiles/fastfetch/config.jsonc;
+      force = true;
+    };
     xdg.configFile."nvim" = {
       source = ./dotfiles/nvim;
       recursive = true;
@@ -274,7 +277,6 @@ let
     git
     kitty
     firefox
-    qutebrowser
     fastfetch
     jq
     obsidian
