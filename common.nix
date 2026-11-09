@@ -1,13 +1,7 @@
 { config, pkgs, lib, ... }:
 
-let
-  hostName = config.networking.hostName;
-  kittyFontSize = {
-    titan = 12.0;
-    t480 = 10.0;
-    }.${hostName} or 12.0;
-  in
 {
+  imports = [ ./modules/kitty.nix ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -93,7 +87,7 @@ let
 
 
     xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
-    xdg.configFile."kitty/font-size.conf".text = "font_size ${toString kittyFontSize}";
+    xdg.configFile."kitty/font-size.conf".text = "font_size ${toString config.myconfig.kittyFontSize}";
     xdg.configFile."niri/config.kdl" = {
       source =  ./dotfiles/niri/config.kdl;
       force = true;

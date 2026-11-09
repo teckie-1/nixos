@@ -12,6 +12,8 @@
 
   networking.hostName = "t480";
 
+  myconfig.kittyFontSize = 10.0;
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
