@@ -51,4 +51,8 @@
   };
 
   programs.gamemode.enable = true;
+
+  home-manager.users.prime = { ... }: {
+    xdg.configFile."MangoHud/MangoHud.conf".source = ../../dotfiles/MangoHud/MangoHud.conf;
+  };
 }
