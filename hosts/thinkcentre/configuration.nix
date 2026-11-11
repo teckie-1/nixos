@@ -54,10 +54,31 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."admin" = {
     isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsTUFEZmCmOFWK4/IIFszNYGnFjEjbY5zmIAME4jyW2 cardno:35_673_152"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4eoz7dCBcU3Ai0eC5ewBvZbVDO8Q8Cb4OrL2/NIq2O cardno:24_957_089"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOy9Sq1X0XMpUaJo0IPFkiiX3xWNlck4hnGH/uj5I11F batphone"
+    ]
     description = "admin";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
+
+  #================================#
+  #       SSH HARDENING            #
+  #================================#
+
+  services.openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        KbdInteractiveAuthentication = false;
+      };
+    };
+
+
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -78,9 +99,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
