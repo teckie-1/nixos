@@ -30,5 +30,12 @@
         lanzaboote.nixosModules.lanzaboote
       ];
     };
+
+    nixosConfigurations.thinkcentre = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/thinkcentre/configuration.nix
+        ];
+      };
   };
 }
