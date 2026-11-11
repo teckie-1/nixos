@@ -70,6 +70,7 @@
           lsbc = "bat -l conf -p";
           img = "imv";
           fastfetch = "jq -s '.[0] * .[1]' $HOME/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/themes/noctalia.jsonc | fastfetch -c -";
+          ssh = "kitty +kitten ssh";
         };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
