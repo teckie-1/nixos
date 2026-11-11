@@ -101,6 +101,14 @@
     defaultEditor = true;
   };
 
+  programs.starship = {
+      enable = true;
+      settings = {
+          add_newline = false;
+          command_timeout = 1300;
+        };
+     };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
