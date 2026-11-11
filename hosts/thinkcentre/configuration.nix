@@ -58,7 +58,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsTUFEZmCmOFWK4/IIFszNYGnFjEjbY5zmIAME4jyW2 cardno:35_673_152"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4eoz7dCBcU3Ai0eC5ewBvZbVDO8Q8Cb4OrL2/NIq2O cardno:24_957_089"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOy9Sq1X0XMpUaJo0IPFkiiX3xWNlck4hnGH/uj5I11F batphone"
-    ]
+    ];
     description = "admin";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
@@ -77,18 +77,30 @@
       };
     };
 
-
-
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  
+  #===============================#
+  #     ENVOIROMENT PACKAGES      #
+  #===============================#
+    
+   environment.systemPackages = with pkgs; [
+     wget
+     git
+   ];
+
+  #===============================#
+  #       SYSTEM PROGRAMS         #
+  #===============================#
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
