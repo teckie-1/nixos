@@ -118,7 +118,15 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  #===============================#
+  #   SYSTEM SERVICES             #
+  #===============================#
+
+  services.homebridge = {
+      enable = true;
+      openFirewall = true;
+    };
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
