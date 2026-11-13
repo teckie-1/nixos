@@ -313,6 +313,7 @@
     calibre
     yubioath-flutter
     weechat
+    rustdesk
 
 
 
