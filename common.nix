@@ -118,6 +118,14 @@
         "image/qoi" = "imv.desktop";
         "image/svg+xml" = "imv.desktop";
 
+        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";
+        "application/msword" = "onlyoffice-desktopeditors.desktop";
+        "application/vnd.ms-excel" = "onlyoffice-desktopeditors.desktop";
+        "application/vnd.ms-powerpoint" = "onlyoffice-desktopeditors.desktop";
+
         "x-scheme-handler/bitwarden" = "bitwarden.desktop";
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
         "x-scheme-handler/discord" = "vesktop.desktop";
@@ -312,6 +320,7 @@
     tree
     telegram-desktop
     calibre
+    zathura
     yubioath-flutter
     weechat
     rustdesk
