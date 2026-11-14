@@ -249,6 +249,7 @@
 
   # EXPERIMENTAL FEATURES
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "prime" ];
 
   nix.gc = {
     automatic = true;
