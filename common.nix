@@ -71,6 +71,7 @@
           img = "imv";
           fastfetch = "jq -s '.[0] * .[1]' $HOME/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/themes/noctalia.jsonc | fastfetch -c -";
           ssh = "kitty +kitten ssh";
+          update-thinkcentre = "nixos-rebuild switch --flake ~/.nixos-config#thinkcentre --target-host thinkcentre --ask-sudo-password";
         };
         initContent = lib.mkMerge [
           (lib.mkOrder 100 ''
