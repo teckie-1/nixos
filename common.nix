@@ -318,7 +318,7 @@
     nmap
     imv
     gimp
-    shotcut
+    kdePackages.kdenlive
     tree
     telegram-desktop
     calibre
