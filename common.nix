@@ -178,6 +178,16 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
+
+  # Services
+  
+  services.syncthing = {
+      enable = true;
+      user = "prime";
+      dataDir = "/home/prime";
+      openDefaultPorts = true;
+    };
+
   services.gnome.gcr-ssh-agent.enable = false;
 
   services.gvfs.enable = true;
