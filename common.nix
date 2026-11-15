@@ -153,6 +153,21 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  fileSystems."/mnt/shared_files" = {
+      device = "//10.99.0.2/shared_files";
+      fsType = "cifs";
+      options = [
+        "credentials=/etc/samba/smb-creds"
+        "uid=1000"
+        "gid=100"
+        "_netdev"
+        "nofail"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=60"
+        "x-systemd.mount-timeout=10s"
+      ];
+    };
+
   # Needed for home-manager's dconf.settings (GTK4/libadwaita dark mode)
   programs.dconf.enable = true;
   environment.variables = {
@@ -299,6 +314,7 @@
     localsend
     lxqt.pcmanfm-qt
     gvfs
+    cifs-utils
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
     papirus-icon-theme
