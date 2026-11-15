@@ -300,7 +300,6 @@
     firefox
     fastfetch
     jq
-    obsidian
     noctalia
     yazi
     claude-code
