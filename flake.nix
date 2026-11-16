@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for t480 and titan";
+  description = "NixOS configuration for t480, titan and, thinkcentre";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
