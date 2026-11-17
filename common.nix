@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./modules/kitty.nix ];
+  imports = [ ./modules/kitty.nix ./modules/printing.nix ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
