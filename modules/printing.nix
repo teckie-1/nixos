@@ -12,5 +12,5 @@
         openFirewall = true;
       };
 
-      enviroment.systemPackages = [ pkgs.system-config-printer ];
+      environment.systemPackages = [ pkgs.system-config-printer ];
   }
