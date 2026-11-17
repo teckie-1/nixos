@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./services/homebridge.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -125,11 +126,6 @@
   #===============================#
   #   SYSTEM SERVICES             #
   #===============================#
-
-  services.homebridge = {
-      enable = true;
-      openFirewall = true;
-    };
 
 
   # Open ports in the firewall.
