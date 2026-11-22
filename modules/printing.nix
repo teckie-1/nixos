@@ -12,5 +12,10 @@
         openFirewall = true;
       };
 
-      environment.systemPackages = [ pkgs.system-config-printer ];
+      hardware.sane = {
+          enable = true;
+          extraBackends = [ pkgs.sane-airscan ];
+        };
+
+      environment.systemPackages = [ pkgs.system-config-printer pkgs.simple-scan ];
   }

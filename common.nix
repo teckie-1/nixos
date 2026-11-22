@@ -263,7 +263,7 @@
     isNormalUser = true;
     description = "prime";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" ];
     packages = with pkgs; [];
   };
 
