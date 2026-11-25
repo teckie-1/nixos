@@ -3,6 +3,10 @@
 {
   imports = [ ./modules/kitty.nix ./modules/printing.nix ];
 
+  nixpkgs.overlays = [
+    (final: prev: { skykeep = prev.callPackage ./pkgs/skykeep.nix {}; })
+  ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.prime = { ... }: {
@@ -321,6 +325,7 @@
     zsh-powerlevel10k
     wireguard-tools
     localsend
+    skykeep
     lxqt.pcmanfm-qt
     gvfs
     cifs-utils
